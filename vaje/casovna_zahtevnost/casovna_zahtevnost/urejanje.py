@@ -1,34 +1,15 @@
-from merilnik import *
-
-def bubbleSort(arr):
-    n = len(arr)
-    bol = False
-    for i in range(n-1):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j + 1]:
-                bol = True
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]     
-        if not bol:
-            return
-        
-        
-def partition(array, low, high):
-    pivot = array[high]
-    i = low - 1
+def bubblesort(sez):
+    n=len(sez)
     
-    for j in range(low, high):
-        if array[j] <= pivot:
-            i = i + 1
-            (array[i], array[j]) = (array[j], array[i])
-    (array[i + 1], array[high]) = (array[high], array[i + 1])
+    for i in range(1,n):#po vsakem el
+        for j in range(1,n-i):#do unih ka jih še nismo uredil
+            x=sez[j]
+            y=sez[j+1]
+            if x>y: #če je prejšni>od naslednjega ju zamenjamo
+                sez[j+1]=x
+                sez[j] = y   
+    return
 
-    return i + 1
- 
- 
-def quickSort(array, low, high):
-    if low < high:
-        pi = partition(array, low, high)
-        quickSort(array, low, pi - 1)
-        quickSort(array, pi + 1, high)
- 
-        
+sez=[1,4,7,77,43,7,25]
+bubblesort(sez)
+print(sez)
