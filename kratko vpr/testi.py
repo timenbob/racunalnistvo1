@@ -46,13 +46,14 @@ for i in range(len(testni)):
     #     #print()
     # else:
     #     print("false")
-    if not resitev_druge==resitve:#not(primerjava(resitev_druge,resitve)):# and resitev_prve == resitve):# or resitev_druge != resitev_prve:
+    if not (resitev_druge==resitve and resitev_prve == resitve and resitev_druge == resitev_prve):
         print("NAPAKA")
         print(testni[i])
         print(resitve[i])
-       # print(resitev_prve[i])
+        print(resitev_prve[i])
         print(resitev_druge[i])
     else:
+        print(testni[i])
         pravilni+=1
 
 print("st. pravilno: {}, st. vsi: {}, st. nepravilni: {}".format(pravilni,testov,testov-pravilni))
