@@ -180,9 +180,20 @@ def bubblesort(sez):
                 sez[j+1]=x
                 sez[j] = y   
     return
-
+narisi_in_pokazi_graf(bubblesort, test_gen_sez, [10,20,30,400,600,800,1000,2000], k=10)
+izpisi_case(bubblesort, test_gen_sez, [10,20,30,400,600,800], 10)
 ```
-
+![Časovne zahtevnosti bubblesort](Figure_1.png)
+```python
+n   | Čas izvedbe [s]
+-----------------------------
+ 10 | 9.800000000015353e-06
+ 20 | 3.5180000000012426e-05
+ 30 | 9.66400000000145e-05
+400 | 0.020980069999999927
+600 | 0.038910229999999955
+800 | 0.07010227
+```
 **Komentar:**
 * Če uporabimo narisi_in_pokazi_graf(bubblesort, test_gen_sez, [10,20,30,40,50,60,100,200,300,400,600,800,1000], k=10) lahko hitro opazimo, da je videti kot neki približek kvadratne funkcije. To se ujema z mojimi pričakovanji, saj imamo 2 zanki.
 * Tabelo s približno 10000 števili.
@@ -236,14 +247,20 @@ def mergesort(sez, prvi=0, zadnji=None):
         mergesort(sez, prvi, sredina)
         mergesort(sez, sredina + 1, zadnji)
         zdruzi(sez, prvi, sredina, zadnji)
-
-arr = [12, 11, 13, 5, 6, 7]
-
-mergesort(arr)
-print(arr)
-
+narisi_in_pokazi_graf(mergesort, test_gen_sez, [10,20,30,400,600,800,1000], k=10)
+izpisi_case(mergesort, test_gen_sez, [10,20,30,400,600,800], 10)
 ''''
-
+![Časovne zahtevnosti mergesort](Figure_2.png)
+```Python
+n   | Čas izvedbe [s]
+-----------------------------
+ 10 | 0.00033974999999983877
+ 20 | 0.00010332999999995707
+ 30 | 0.0002813199999998517
+400 | 0.0057582699999990435
+600 | 0.008626919999999316
+800 | 0.01229836000000013
+```
 **Komentar:**
 * Če uporabimo narisi_in_pokazi_graf(mergesort, test_gen_sez, [10,20,30,40,50,60,100,200,300,400,600,800,1000], k=10) lahko hitro opazimo, da je videti kot neki približek linearne funkcije. To se približno ujema s pričakovanji, saj sem prebral, da ima časovno zahtevnost O(n*log(n))
 * Tabelo s približno 30000000 števili.

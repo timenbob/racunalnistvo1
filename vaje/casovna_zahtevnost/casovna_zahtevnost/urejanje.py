@@ -12,8 +12,8 @@ def bubblesort(sez):
                 sez[j] = y   
     return
 
-#narisi_in_pokazi_graf(bubblesort, test_gen_sez, [10,20,30,400,600,800,1000,5000], k=10)
-#izpisi_case(test_fun_kvad, test_gen_sez, [10000], 10)
+#narisi_in_pokazi_graf(bubblesort, test_gen_sez, [10,20,30,400,600,800,1000], k=10)
+#izpisi_case(bubblesort, test_gen_sez, [10,20,30,400,600,800], 10)
 
 def zdruzi(sez, prvi, srednji, zadnji):
     id_prvi = srednji - prvi + 1
@@ -60,5 +60,5 @@ def mergesort(sez, prvi=0, zadnji=None):
 
 
 
-narisi_in_pokazi_graf(mergesort, test_gen_sez, [10,20,30,400,600,800,1000,5000], k=10)
-#izpisi_case(test_fun_kvad, test_gen_sez, [10000], 10)
+narisi_in_pokazi_graf(mergesort, test_gen_sez, [10,20,30,400,600,800,1000], k=10)
+izpisi_case(mergesort, test_gen_sez, [10,20,30,400,600,800], 10)
