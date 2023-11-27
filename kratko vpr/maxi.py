@@ -12,7 +12,7 @@ def maxi_k(sez,k):
     stevec_ponovitev_najvecjega=0
     
     #predelamo prvi kvadrat dolžine k
-    stevec_ponovitev_najvecjega=0#TODO tut kle se lahko ponovi maxi
+    stevec_ponovitev_najvecjega=0
     pomozni=Vrsta()
     for i in range(k):
         if sez[i]>najvecji_trenutni:

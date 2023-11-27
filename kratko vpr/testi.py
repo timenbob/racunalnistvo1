@@ -16,7 +16,7 @@ def primerjava(x,y):
     return bol
 
 
-testov=1000
+testov=10000
 
 testni=[]
 resitve=[]
