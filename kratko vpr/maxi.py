@@ -45,6 +45,7 @@ def maxi_k(sez,k):
         #če sta ista
         elif najvecji_trenutni==sez[i]:
             maximumi.append(sez[i])
+            stevec_ponovitev_najvecjega+=1
         #če je vstopajoči večji od največji trenutni
         elif najvecji_trenutni<sez[i]:
             maximumi.append(sez[i])
@@ -78,5 +79,5 @@ def maxi_k(sez,k):
 print(maxi_k([1], 1))
 
 
-#print(maxi_k([-4, 20, 11, -9, -14, -3, -16, -2, 16, -11, 13, 12, -13, 16], 1))
+print(maxi_k([-4, 20, 11, -9, -14, -3, -16, -2, 16, -11, 13, 12, -13, 16], 3))
         
