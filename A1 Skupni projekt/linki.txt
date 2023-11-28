@@ -1,0 +1,9 @@
+https://www.google.com/search?q=Introduction+to+Algorithms+Thomasa+H.+Cormena%2C+Charlesa+E.+Leisersona%2C+Ronalda+L.+Rivesta+in+Clifforda+Steina&oq=Introduction+to+Algorithms+Thomasa+H.+Cormena%2C+Charlesa+E.+Leisersona%2C+Ronalda+L.+Rivesta+in+Clifforda+Steina&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiABDIHCAIQLhiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABNIBCDIyODhqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://dl.ebooksworld.ir/books/Introduction.to.Algorithms.4th.Leiserson.Stein.Rivest.Cormen.MIT.Press.9780262046305.EBooksWorld.ir.pdf
+
+https://en.wikipedia.org/wiki/Rolling_hash
+
+https://scholar.google.com/scholar?q=rabin+karp+algorithm&hl=sl&as_sdt=0,5&as_rr=1
+
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/http://speed.cs.nctu.edu.tw/~ydlin/profile06.pdf
