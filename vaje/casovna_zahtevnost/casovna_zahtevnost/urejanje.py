@@ -1,3 +1,5 @@
+from merilnik import *
+
 def bubblesort(sez):
     n=len(sez)
     
@@ -10,6 +12,53 @@ def bubblesort(sez):
                 sez[j] = y   
     return
 
-sez=[1,4,7,77,43,7,25]
-bubblesort(sez)
-print(sez)
+#narisi_in_pokazi_graf(bubblesort, test_gen_sez, [10,20,30,400,600,800,1000], k=10)
+#izpisi_case(bubblesort, test_gen_sez, [10,20,30,400,600,800], 10)
+
+def zdruzi(sez, prvi, srednji, zadnji):
+    id_prvi = srednji - prvi + 1
+    id_drugi = zadnji - srednji
+
+    l = []
+    d = []
+    for i in range(id_prvi):
+        l.append(sez[prvi + i])
+
+    for i in range(id_drugi):
+        d.append(sez[srednji+1+i]) 
+
+    i, j, k = 0, 0, prvi
+
+    while i < id_prvi and j < id_drugi:
+        if l[i] <= d[j]:
+            sez[k] = l[i]
+            i += 1
+        else:
+            sez[k] = d[j]
+            j += 1
+        k += 1
+    while i < id_prvi:
+        sez[k] = l[i]
+        i += 1
+        k += 1
+    while j < id_drugi:
+        sez[k] = d[j]
+        j += 1
+        k += 1
+
+def mergesort(sez, prvi=0, zadnji=None):
+    n = len(sez)
+    if zadnji is None:
+        zadnji = n - 1
+
+    if prvi < zadnji:
+        sredina = (prvi + zadnji) // 2
+
+        mergesort(sez, prvi, sredina)
+        mergesort(sez, sredina + 1, zadnji)
+        zdruzi(sez, prvi, sredina, zadnji)
+
+
+
+narisi_in_pokazi_graf(mergesort, test_gen_sez, [10,20,30,400,600,800,1000], k=10)
+izpisi_case(mergesort, test_gen_sez, [10,20,30,400,600,800], 10)

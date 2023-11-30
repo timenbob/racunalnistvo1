@@ -51,6 +51,6 @@ def maxi_k(sez,k):
 
     return Resitev
 
-#print(maxi_k([1,3,-1,-3,5,3,6,7],9))
+print(maxi_k([1,3,-1,-3,5,3,6,7],3))
         
 
