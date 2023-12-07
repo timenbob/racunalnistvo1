@@ -17,7 +17,7 @@ Vaje so se meni zdele super.
 
 ## Organizacija dela
 
-Z Milico Vukićević sva si pomagala.
+Z Milico Vukićević sva si pomagala. Jaz sem rešil nalogi Urejanje z mehurčki ter Urejanje z tlivanjem Milica pa je rešila nalogi Urejanje z vstavljanjem ter Hitro urejanje
 
 # Časovna zahtevnost
 
@@ -167,7 +167,7 @@ Ko ste se prepričali o pravilnosti implementacije, uporabite knjižnico `meriln
 
 Tistim, ki ste prisotni na vajah, priporočam delo v parih. Vsak iz para lahko na primer implementira dva izmed algoritmov, nato pa si implementacije izmenjata (obvezno označite, katere funkcije so vaše lastno delo), lahko pa skupaj implementirata vse izmed algoritmov. Skupaj lahko načrtujeta različne eksperimente in diskutirata o ugotovitvah. Na koncu vaj bi nekaj minut namenili deljenju ugotovitev.
 
-**Rešitev1:**
+**Urejanje z mehurčki:**
 ```python
 def bubblesort(sez):
     n=len(sez)
@@ -203,7 +203,7 @@ n   | Čas izvedbe [s]
 * Razen da uporabimo drug algoritem, se mi zdi, da ne.
 
 
-**Rešitev2:**
+**Urejanje z tlivanjem:**
 '''python
 def zdruzi(sez, prvi, srednji, zadnji):
     id_prvi = srednji - prvi + 1
@@ -268,6 +268,40 @@ n   | Čas izvedbe [s]
 * Prednost je, da je izredno hiter. Slabost da je implementacija teška.
 * Prostorske zahtevnosti ne znam zares oceniti.
 * Razen da uporabimo drug algoritem, se mi zdi, da ne.
+
+**Urejanje z vstavljanjem:**
+'''Python
+def insertion_sort(seznam):
+    '''Seznam uredi nepadajoce
+    Implementacija algoritma insertion_sort'''
+
+    if len(seznam) <= 1:
+        return seznam
+
+    for i in range (1, len(seznam)):
+        pivot = seznam[i]
+        j = i - 1
+        while j >= 0 and seznam[j] > pivot:
+            seznam[j + 1] = seznam[j]
+            j -= 1
+        seznam[j+1] = pivot
+    return seznam
+'''
+**Hitro urejanje:**
+'''Python
+def quicksort(seznam):
+    '''Implementacija algoritma quicksort za sezname števil
+    Za pivot uzamemo prvi element seznama
+    Seznam urejamo nepadajoce'''
+
+    if len(seznam) <= 1:
+        return seznam
+    else:
+        pivot = seznam[0]
+        manjsi = [x for x in seznam[1:] if x <= pivot]
+        vecji = [x for x in seznam[1:] if x > pivot]
+        return quicksort(manjsi) + [pivot] + quicksort(vecji)
+'''
 
 # Viri
 * https://en.wikipedia.org/wiki/Merge_sort
