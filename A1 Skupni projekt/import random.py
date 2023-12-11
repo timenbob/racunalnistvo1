@@ -1,7 +1,7 @@
 import random
-m=256
-p=101
-os=(97*(101**2)+98*101+99)%m
+m=439
+p=256
+os=(97*(p**2)+98*p+99)%m
 niz=[]
 ostanek=0
 import itertools
@@ -16,7 +16,7 @@ combinations = list(itertools.combinations(my_list, 3))
 while ostanek!=os:
     for el in combinations:
         niz=el
-        ostanek=(el[0]*101**2+el[1]*101+el[2])%m
+        ostanek=(el[0]*p**2+el[1]*p+el[2])%m
         if ostanek==os:
             print(el,os,ostanek,chr(el[0]),chr(el[1]),chr(el[2]))
     break
