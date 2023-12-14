@@ -13,16 +13,21 @@
 # =============================================================================
 from drevo import Drevo
 def vrni_koren(drevo):
-    if drevo.prazno():
+    if drevo.prazno:
         return None
     else:
-        return drevo.podatek()
+        return drevo.podatek
+    
+
+
 # =====================================================================@038437=
 # 2. podnaloga
 # Napišite funkcijo `je_list(drevo)`, ki preveri ali je podano drevo list.
 # =============================================================================
 def je_list(drevo):
-    if drevo.levo().prazno() and drevo.desno().prazno():
+    if drevo.prazno:
+        return False
+    elif drevo.levo.prazno and drevo.desno.prazno:
         return True
     else:
         return False
@@ -32,49 +37,37 @@ def je_list(drevo):
 # kvečjemu desno poddrevo.
 # =============================================================================
 def nikoli_levo(drevo):
-    if drevo.prazno():
+    if drevo.prazno:
         return True
-    elif not drevo.levo.prazno():
+    elif drevo.levo.prazno and drevo.desno.prazno:
+        return True
+    elif not drevo.levo.prazno:
         return False
-    elif drevo.levo.prazno():
-        nikoli_levo(drevo.levo())
+    elif drevo.levo.prazno and not drevo.desno.prazno:
+        return(nikoli_levo(drevo.levo))
+
 # =====================================================================@038439=
 # 4. podnaloga
 # Napišite funkcijo `visina(drevo)`, ki izračuna višino dvojiškega drevesa.
 # =============================================================================
-
-drev=Drevo(1,levo=Drevo(2),desno=Drevo(3))
-drev2=Drevo()
-vrni_koren(drev)
-
-
-
+def visina(drevo):
+    if drevo.prazno:
+        return 0
+    else:
+        return max(1+visina(drevo.levo),1+visina(drevo.desno))
 
 
+drevo1 = Drevo()
+print(visina(drevo1))
 
+drevo2 = Drevo(1)
+print(visina(drevo2))
 
+drevo3 = Drevo(1,levo=Drevo(2),desno=Drevo(3,levo=Drevo(5)))
+print(visina(drevo3))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+drevo4 = Drevo(5,levo=Drevo(7,levo=Drevo(42,levo=Drevo(5))))
+print(visina(drevo4))
 
 
 
