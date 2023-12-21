@@ -94,33 +94,42 @@ def drevo_vmesni_nivojski(vmesni, nivojski):
 # =============================================================================
 def drevesa_premi_obratni(premi, obratni):   
     if len(obratni)==0:
-        return Drevo()
-    else:
-        koren=premi[0]
-        podkorenL=premi[1]
-        i=obratni.index(podkorenL)
-        
-        levoOB=obratni[:i+1]
-        desnoOB=obratni[i:]
-        
-        levoPR=premi[:len(levoOB)+1]
-        desnoPR=premi[len(levoOB):]
-        
-        if len(levoOB)==2:
-            levopodrevo= set(Drevo(levoPR[0],levo=levoPR[1]),Drevo(levoPR[0],desno=levoPR[1]))
-            
-        if len(desnoOB)==2:
-            desnopodrevo= set(Drevo(desnoPR[0],levo=desnoPR[1]),Drevo(desnoPR[0],desno=desnoPR[1]))
-        
-        return mesano.....
+        return {Drevo()}
+    elif len(obratni)==1:
+        return {Drevo(premi[0])}
+    
+    koren=premi[0]
+    drevesa=set()
+    if len(premi)>2:
+        i=obratni.index(premi[1])
+        vsa_leva=drevesa_premi_obratni(premi[1:i+2], obratni[:i+1])
+        vsa_desna=drevesa_premi_obratni(premi[i+2:], obratni[i+1:-1])
+        for le in vsa_leva:
+            for de in vsa_desna:
+                drevesa.add(Drevo(koren,levo=le,desno=de))
+        return drevesa
+    if len(premi)==2:
+        return{Drevo(koren,levo=Drevo(premi[1])),Drevo(koren,desno=Drevo(premi[1]))}
+
+
+
+
 # =====================================================================@038480=
 # 5. podnaloga
 # Sestavite funkcijo `drevesa_vmesni_premi(vmesni, premi)`, ki iz seznama
 # elementov v vmesnem in premem pregledu rekonstruira množico vseh možnih
 # dvojiških dreves, pri čemer se lahko elementi v drevesu tudi ponovijo.
 # =============================================================================
-
-
+def drevesa_vmesni_premi(vmesni, premi):
+    if len(vmesni)==0:
+        return {Drevo()}
+    mn=set()
+    indeks=[i for i in range(len(vmesni)) if vmesni[i]==premi[0]]
+    for i in indeks:
+        for levo in drevesa_vmesni_premi(vmesni[:i], premi[1:i+1]):
+            for desno in drevesa_vmesni_premi(vmesni[i+1:], premi[1+i:]):
+                mn.add(Drevo(premi[0],levo=levo,desno=desno))
+    return mn
 
 
 

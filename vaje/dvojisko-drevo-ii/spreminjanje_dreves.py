@@ -47,6 +47,17 @@ class Drevo:
                  self.vsebina == other.vsebina and
                  self.levo == other.levo and
                  self.desno == other.desno))
+    
+    def odrezi(self, n):
+        if self.prazno:
+            return
+        elif n==0:
+            self.prazno=True
+            self.levo=Drevo()
+            self.desno=Drevo()
+        else:
+            self.levo.odrezi(n-1)
+            self.desno.odrezi(n-1)
 # =====================================================================@038465=
 # 2. podnaloga
 # Sestavite metodo `potroji(self)`, ki pod vsakim vozliščem doda še dve njegovi
@@ -68,7 +79,13 @@ class Drevo:
 #                                       levo = Drevo(2),
 #                                       desno = Drevo(2))))
 # =============================================================================
-
+    def potroji(self):
+        if self.prazno:
+            return
+        self.levo.potroji()
+        self.desno.potroji()
+        self.levo=Drevo(self.vsebina, levo=self.levo,desno=Drevo())
+        self.desno=Drevo(self.vsebina, levo=Drevo(),desno=self.desno)
 # =====================================================================@038466=
 # 3. podnaloga
 # Sestavite metodo `prezrcali(self)`, ki drevo prezrcali. Zgled:
@@ -81,8 +98,13 @@ class Drevo:
 #                        desno = Drevo(1)),
 #           desno = Drevo(3)
 # =============================================================================
-
-
+    def prezrcali(self):
+        if not self.prazno:
+            self.levo,self.desno=self.desno,self.levo
+            if not self.levo.prazno:
+                self.levo.prezrcali(         )
+            if not self.desno.prazno:
+                self.desno.prezrcali()
 
 
 
