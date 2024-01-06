@@ -6,13 +6,15 @@ def maxi_k(sez,k):
         raise ValueError("NO VALUE")
     if len(sez)<k:
         raise ValueError("K needs to be smaller ther sez")
+    if len(sez)==1:
+        return sez
     
     maximumi=[]
     najvecji_trenutni=sez[0] #kateri je trenutni najvecji v drsečem kvadratu in kolikokrat se ta element pojavi
     stevec_ponovitev_najvecjega=0
     
     #predelamo prvi kvadrat dolžine k
-    stevec_ponovitev_najvecjega=0#TODO tut kle se lahko ponovi maxi
+    stevec_ponovitev_najvecjega=0
     pomozni=Vrsta()
     for i in range(k):
         if sez[i]>najvecji_trenutni:

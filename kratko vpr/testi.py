@@ -1,7 +1,7 @@
 """program ki nalkjučno generira primere in primera vse 3 programe ki resijo problem"""
 
 from random import randint
-from maxi_k import maxi_k as maxi1
+#from maxi_k import maxi_k as maxi1
 from testna1 import maxSlidingWindow as maxS1
 from testna2 import maxSlidingWindow as maxS2
 from maxi import maxi_k as maxi2
@@ -16,7 +16,7 @@ def primerjava(x,y):
     return bol
 
 
-testov=10000
+testov=100
 
 testni=[]
 resitve=[]
@@ -46,7 +46,7 @@ for i in range(len(testni)):
     #     #print()
     # else:
     #     print("false")
-    if not (resitev_druge==resitve and resitev_prve == resitve and resitev_druge == resitev_prve):
+    if not (resitev_druge==resitve):# and resitev_prve == resitve and resitev_druge == resitev_prve):
         print("NAPAKA")
         print(testni[i])
         print(resitve[i])

@@ -132,7 +132,7 @@ def drevesa_vmesni_premi(vmesni, premi):
     return mn
 
 
-
+print(drevo_vmesni_nivojski([1, 68, 12, 66, 18, 53, 42, 99, 10, 5, 88, 23, 37], [42, 18, 5, 1, 53, 10, 23, 12, 99, 88, 37, 68, 66]))
 
 
 
