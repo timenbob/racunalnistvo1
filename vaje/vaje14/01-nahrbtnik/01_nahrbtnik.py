@@ -64,10 +64,18 @@ def sestaviS(s, z):
                 if novi[-1][1]<s[i_s][1]:
                     novi.append(s[i_s])
                 i_s+=1
+            elif z[i_z][0]==s[i_s][0]:
+                if z[i_z][1]>s[i_s][1]:
+                    novi.append(z[i_z])
+                else:
+                    novi.append(s[i_s])
+                i_s+=1
+                i_z+=1
             else:
                 if novi[-1][1]<z[i_z][1]:
                     novi.append(z[i_z])
                 i_z+=1
+        
         else:
             if novi[-1][1]<z[i_z][1]:
                 novi.append(z[i_z])
@@ -91,7 +99,6 @@ def sestaviS(s, z):
 def mnoziceS(predmeti):
     s=[[(0,0)]]
     for el in predmeti:
-        print(el)
         z=sestaviZ(s[-1],el)
         s.append(sestaviS(s[-1],z))
     return s
@@ -106,7 +113,15 @@ def mnoziceS(predmeti):
 #     >>> nahrbtnik01([(2,3),(4,5),(4,7),(6,8)], 9)
 #     (8,12)
 # =============================================================================
-
+def nahrbtnik01(predmeti, velikost):
+    mn=mnoziceS(predmeti)[-1]
+    prejsnji=(0,0)
+    for el in mn:
+        if el[0]>velikost:
+            return prejsnji
+        else:
+            prejsnji=el
+    return mn[-1]
 # =====================================================================@038558=
 # 6. podnaloga
 # Sestavi funkcijo `resitev01(predmeti, velikost)`, ki reši problem 0/1
@@ -117,7 +132,20 @@ def mnoziceS(predmeti):
 #     >>> resitev01([(2,3),(4,5),(4,7),(6,8)], 9)
 #     [0, 1, 1, 0]
 # =============================================================================
-
+def resitev01(predmeti, velikost):
+    mn=mnoziceS(predmeti)
+    odg=[0]*len(predmeti)
+    nah=nahrbtnik01(predmeti,velikost)
+    for i in range(len(predmeti)-1,0,-1):
+        nah=(nah[0]-predmeti[i][0],nah[1]-predmeti[i][1])
+        if nah in mn[i]:
+            odg[i]=1
+        else:
+            nah=(nah[0]+predmeti[i][0],nah[1]+predmeti[i][1])
+    nah=(nah[0]-predmeti[0][0],nah[1]-predmeti[0][1])
+    if nah==(0,0):
+        odg[0]=1
+    return odg
 # =====================================================================@038559=
 # 7. podnaloga
 # Sestavi funkcijo `resitve01(predmeti, velikost)`, ki reši problem 0/1
